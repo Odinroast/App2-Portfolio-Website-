@@ -20,15 +20,22 @@ Below you can find some of the apps that I have built in python, Feel free to co
 st.write(contact_content)
 
 data = pd.read_csv("data.csv", sep=';')
-col3, col4 = st.columns(2)
+col3, col5, col4 = st.columns([1.5, 0.2, 1.5])
 with col3:
     for index, row in data[:11].iterrows():
         st.header(row["title"])
+        st.image("images/" + row["image"])
+        st.write(row["description"])
+        st.write(f"[Source code]({row['url']})")
 
 with col4:
     for index, row in data[10:].iterrows():
         st.header(row["title"])
-        print(index)
+        st.image("images/" + row["image"])
+        st.write(row["description"])
+        st.write(f"[Source code]({row['url']}))")
+
+print(data)
 
 
 
